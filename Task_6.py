@@ -1,7 +1,8 @@
 try:
     file = open("data.txt", "r")
 except:
-    raise Exception("Cannot open file\n")
+    print("Cannot open file\n")
+    exit()
 
 
 def Read_int(filename):
@@ -22,20 +23,23 @@ def Read_int(filename):
                     f+=1            
             except:
                 if (x!=' ') and (x!=''):
-                    raise Exception("Wrong data\n")
+                    print("Wrong data\n")
+                    exit()
  
 
 c=None
 while (c==None):        
     c=Read_int(file)
     if (c=='end'):
-        raise Exception("Empty file\n")
+        print("Empty file\n")
+        exit()
     
 e=None
 while (e==None):        
     e=Read_int(file)
     if (e=='end'):
-        raise Exception("There is no increasing sections\n")
+        print("There is no increasing sections\n")
+        exit()
      
 f=1
 max=1
@@ -56,6 +60,9 @@ while(c!='end'):
             e=c           
         if (c!='end'):
             c=None
+
+if (f>max):
+    max=f
 
 if (max==1):
     print("There is no increasing sections\n")
